@@ -1,0 +1,634 @@
+/* Variáveis de Cor */
+:root {
+    /* Cores Principais: Laranja e Preto */
+    --cor-primaria-laranja: #FFA500;         /* Laranja Principal (Orange) */
+    --cor-primaria-laranja-hover: #FF8C00;   /* Laranja Escuro (DarkOrange) para hover */
+    --cor-fundo-principal: #121212;         /* Preto/Grafite muito escuro para fundo */
+    --cor-fundo-secao: #1E1E1E;           /* Preto/Grafite um pouco mais claro para seções */
+
+    /* Cor de Contraste/Secundária: Roxo */
+    --cor-destaque-roxo: #8A2BE2;           /* Roxo (BlueViolet) */
+    --cor-destaque-roxo-hover: #6A0DAD;     /* Roxo mais escuro para hover */
+
+    /* Cores de Texto */
+    --cor-texto-principal: #FFFFFF;          /* Branco para texto sobre fundo escuro */
+    --cor-texto-secundario: #CCCCCC;        /* Cinza claro para texto menos importante */
+    --cor-texto-sobre-laranja: #000000;     /* Preto para texto sobre fundos laranja (para contraste) */
+    --cor-texto-sobre-roxo: #FFFFFF;        /* Branco para texto sobre fundos roxos */
+
+    /* Outras Cores */
+    --cor-borda: #333333;                   /* Cinza escuro para bordas sutis */
+    --sombra-padrao: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --sombra-card-laranja: 0 6px 20px rgba(255, 165, 0, 0.2); /* Sombra com tom laranja */
+    --sombra-card-roxo: 0 6px 20px rgba(138, 43, 226, 0.15); /* Sombra com tom roxo */
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Escolha uma fonte mais estilizada depois */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho e Navegação */
+header {
+    background-color: var(--cor-fundo-secao); /* Fundo preto/grafite para o header */
+    padding: 6px 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Sombra mais escura */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-primaria-laranja); /* Logo em laranja */
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--cor-texto-principal); /* Links em branco */
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--cor-primaria-laranja); /* Destaque do link em laranja */
+    color: var(--cor-texto-sobre-laranja); /* Texto preto sobre laranja */
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--cor-primaria-laranja); /* Barras do menu hamburguer em laranja */
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Seção Hero */
+.hero {
+    /* Imagem de fundo pode ser preta/escura ou com detalhes laranja/roxo */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080/121212/FFA500?text=Fundo+Escuro') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--cor-texto-principal);
+}
+
+.hero h1 .highlight-orange {
+    color: var(--cor-primaria-laranja); /* Nome destacado em laranja */
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--cor-texto-secundario); /* Subtítulo em cinza claro */
+}
+
+.hero-image img {
+    max-width: 300px;
+    border-radius: 50%;
+    border: 5px solid var(--cor-primaria-laranja); /* Borda da imagem em laranja */
+    box-shadow: var(--sombra-card-laranja);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    margin: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary { /* Botão primário Laranja */
+    background-color: var(--cor-primaria-laranja);
+    color: var(--cor-texto-sobre-laranja);
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-primaria-laranja-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary { /* Botão secundário Roxo (contraste) */
+    background-color: var(--cor-destaque-roxo);
+    color: var(--cor-texto-sobre-roxo);
+    /* Ou pode ser com borda laranja e texto roxo:
+    background-color: transparent;
+    color: var(--cor-destaque-roxo);
+    border: 2px solid var(--cor-primaria-laranja);
+    */
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-destaque-roxo-hover);
+    /* Se for bordado:
+    background-color: var(--cor-primaria-laranja);
+    color: var(--cor-texto-sobre-laranja);
+    border-color: var(--cor-primaria-laranja-hover);
+    */
+    transform: translateY(-2px);
+}
+
+
+/* Seções Gerais */
+section {
+    padding: 80px 0;
+}
+
+/* Remove o fundo alternado, deixando a maioria preto/grafite */
+/* Se quiser alternar, defina uma cor ligeiramente diferente para :nth-child(even) */
+/* section:nth-child(even) {
+    background-color: var(--cor-fundo-secao-alternativa);
+} */
+
+section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: var(--cor-primaria-laranja); /* Títulos de seção em laranja */
+}
+
+section .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: var(--cor-texto-secundario);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seção Sobre */
+.about-content {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text h3 {
+    color: var(--cor-primaria-laranja); /* Subtítulos "Habilidades" em laranja */
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    background-color: var(--cor-fundo-secao); /* Fundo do item da skill */
+    border-left: 4px solid var(--cor-primaria-laranja); /* Borda lateral laranja */
+    margin-bottom: 0.5rem;
+    padding: 0.8rem 1rem;
+    border-radius: 0 5px 5px 0;
+    transition: transform 0.2s ease;
+}
+
+.skills-list li:hover {
+    transform: translateX(5px);
+    background-color: #2a2a3a; /* Um pouco mais claro no hover */
+}
+
+.skills-list i {
+    margin-right: 10px;
+    color: var(--cor-destaque-roxo); /* Ícones das skills em roxo para contraste */
+}
+
+
+/* Seção Projetos */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.project-card {
+    background-color: var(--cor-fundo-secao); /* Fundo do card */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--cor-borda); /* Borda sutil */
+    box-shadow: var(--sombra-padrao);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-card-laranja); /* Sombra laranja no hover do card */
+    border-color: var(--cor-primaria-laranja);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-info h3 {
+    color: var(--cor-primaria-laranja); /* Título do projeto em laranja */
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.project-info p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    color: var(--cor-texto-secundario);
+}
+
+.project-links a {
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project-links i {
+    margin-right: 5px;
+}
+
+/* Links do projeto: Demo em Roxo, Código em Laranja (ou vice-versa) */
+.project-links a.btn-project-demo {
+    color: var(--cor-destaque-roxo);
+}
+.project-links a.btn-project-demo:hover {
+    color: var(--cor-destaque-roxo-hover);
+}
+
+.project-links a.btn-project-code {
+    color: var(--cor-primaria-laranja);
+}
+.project-links a.btn-project-code:hover {
+    color: var(--cor-primaria-laranja-hover);
+}
+
+/* Se precisar de botões mais formatados dentro do card: */
+.btn-project {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border: 1px solid transparent;
+}
+
+/* Exemplo de botões de projeto: Demo Roxo, Código Laranja */
+.btn-project.demo {
+    background-color: var(--cor-destaque-roxo);
+    color: var(--cor-texto-sobre-roxo);
+    border-color: var(--cor-destaque-roxo);
+}
+.btn-project.demo:hover {
+    background-color: var(--cor-destaque-roxo-hover);
+    border-color: var(--cor-destaque-roxo-hover);
+}
+
+.btn-project.code {
+    background-color: transparent;
+    color: var(--cor-primaria-laranja);
+    border: 1px solid var(--cor-primaria-laranja);
+}
+.btn-project.code:hover {
+    background-color: var(--cor-primaria-laranja);
+    color: var(--cor-texto-sobre-laranja);
+}
+
+
+.text-center {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+/* ESTILOS ANTERIORES (Hero, About, Projects, etc.) DEVEM SER MANTIDOS */
+
+/* ... (outros estilos) ... */
+
+/* Seção Contato REMOVIDA */
+/* .contact { ... } */
+/* .contact-content { ... } */
+/* .contact-info { ... } */
+/* .contact-form { ... } */
+/* .contact-form input, .contact-form textarea { ... } */
+/* ... etc ... */
+
+
+/* Rodapé Atualizado */
+/* ESTILOS ANTERIORES (Hero, About, Projects, Responsividade Geral, etc.) DEVEM SER MANTIDOS */
+
+/* ... (outros estilos) ... */
+
+/* Rodapé Atualizado para Layout Lateral */
+footer {
+    background-color: var(--cor-fundo-secao);
+    color: var(--cor-texto-secundario);
+    padding: 2rem 0; /* Ajuste o padding conforme necessário */
+    margin-top: auto;
+    border-top: 1px solid var(--cor-borda);
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between; /* Distribui espaço entre os filhos diretos */
+    align-items: center;           /* Alinha verticalmente ao centro */
+    flex-wrap: wrap;               /* Permite que os itens quebrem para a próxima linha em telas menores */
+    gap: 1rem;                     /* Espaço entre os itens se eles quebrarem a linha */
+}
+
+.footer-info {
+    text-align: left; /* Alinha os textos à esquerda */
+    flex-grow: 1;     /* Permite que esta área cresça se houver espaço */
+}
+
+.footer-info p {
+    margin-bottom: 0.25rem; /* Pequena margem entre os parágrafos de info */
+    font-size: 0.9rem;
+}
+.footer-info p:last-child {
+    margin-bottom: 0; /* Remove margem do último parágrafo */
+}
+
+.footer-contact-links {
+    text-align: right; /* Alinha os ícones à direita */
+    flex-shrink: 0;    /* Impede que os links encolham demais */
+}
+
+.footer-contact-links a {
+    color: var(--cor-texto-principal);
+    font-size: 1.8rem;
+    margin-left: 18px; /* Espaçamento à esquerda de cada ícone */
+    /* margin-right é removido pois o alinhamento é à direita */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.footer-contact-links a:first-child {
+    margin-left: 0; /* O primeiro ícone não precisa de margem à esquerda */
+}
+
+.footer-contact-links a:hover {
+    color: var(--cor-primaria-laranja);
+    transform: translateY(-3px);
+}
+
+/* Cores de hover específicas (opcional, como antes) */
+.footer-contact-links a[href*="mailto"]:hover {
+    color: var(--cor-primaria-laranja);
+}
+.footer-contact-links a[href*="linkedin"]:hover {
+    color: #0A66C2; /* Azul do LinkedIn */
+}
+.footer-contact-links a[href*="github"]:hover {
+    color: var(--cor-destaque-roxo); /* Roxo para GitHub */
+}
+
+/* Textos de copyright e "feito com" permanecem como antes dentro de .footer-info */
+footer .copyright-text,
+footer .made-with-text {
+    color: var(--cor-texto-secundario);
+}
+
+footer .made-with-text .fa-heart {
+    color: var(--cor-primaria-laranja);
+}
+footer .made-with-text .fa-mug-hot {
+    color: var(--cor-destaque-roxo);
+}
+
+/* Ajustes Responsivos para o Rodapé */
+@media (max-width: 768px) {
+    footer .container {
+        flex-direction: column; /* Empilha os itens verticalmente */
+        align-items: center;    /* Centraliza os itens empilhados */
+    }
+
+    .footer-info {
+        text-align: center;     /* Centraliza o texto quando empilhado */
+        margin-bottom: 1rem;    /* Espaço entre o bloco de texto e os links */
+    }
+
+    .footer-contact-links {
+        text-align: center;     /* Centraliza os links quando empilhados */
+    }
+
+    .footer-contact-links a {
+        margin: 0 10px; /* Restaura margem horizontal para ícones centrados */
+        font-size: 1.6rem;
+    }
+
+    footer {
+        padding: 1.5rem 0;
+    }
+}
+
+/* Ajustes para telas médias, se o space-between ficar muito esticado */
+@media (min-width: 769px) and (max-width: 992px) {
+    .footer-contact-links a {
+        font-size: 1.7rem;
+        margin-left: 15px;
+    }
+    /* Você pode querer centralizar também em telas médias se o espaço for pouco:
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-info { text-align: center; margin-bottom: 1rem; }
+    .footer-contact-links { text-align: center; }
+    */
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+    section h2 {
+        font-size: 2.4rem;
+    }
+    .about-content {
+        flex-direction: column;
+    }
+    .about-image {
+        margin-top: 2rem;
+    }
+     .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        margin-top: 2rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 65px; /* Ajustar se a altura do header mudar */
+        left: 0;
+        background-color: var(--cor-fundo-secao); /* Fundo do menu mobile */
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 0.8rem 0;
+        width: 100%;
+    }
+    .nav-links li:hover { /* Hover no item da lista */
+         background-color: rgba(255, 165, 0, 0.1); /* Leve fundo laranja */
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { /* Link ativo/hover no mobile */
+        background-color: var(--cor-primaria-laranja);
+        color: var(--cor-texto-sobre-laranja);
+        width: 100%;
+        display: block;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-image img {
+        max-width: 250px;
+    }
+
+    .about-content,
+    .contact-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contact-form button {
+        width: 100%;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
